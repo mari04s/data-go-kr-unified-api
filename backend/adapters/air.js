@@ -1,8 +1,6 @@
 require('dotenv').config();
 const axios = require('axios');
 
-console.log('CHAVE:', process.env.AIR_SERVICE_KEY);
-
 async function getAirQuality() {
   const url = 'https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty';
 
@@ -20,6 +18,7 @@ async function getAirQuality() {
       headers: {
         'User-Agent': 'Mozilla/5.0',
       },
+      timeout: 30000,
     });
 
     return {
@@ -28,8 +27,6 @@ async function getAirQuality() {
       error: null,
     };
   } catch (err) {
-    console.log('STATUS:', err.response ? err.response.status : 'sem status');
-    console.log('CORPO DO ERRO:', err.response ? JSON.stringify(err.response.data) : 'sem corpo');
     return {
       success: false,
       data: null,

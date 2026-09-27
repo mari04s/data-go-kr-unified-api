@@ -5,6 +5,7 @@ const busRoute = require('./routes/bus');
 const tourismRoute = require('./routes/tourism');
 const hospitalRoute = require('./routes/hospital');
 const businessRoute = require('./routes/business');
+const statsRoute = require('./routes/stats');
 
 const app = express();
 const PORT = 3000;
@@ -19,6 +20,7 @@ app.use('/bus', busRoute);
 app.use('/tourism', tourismRoute);
 app.use('/hospital', hospitalRoute);
 app.use('/business', businessRoute);
+app.use('/stats', statsRoute);
 
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);

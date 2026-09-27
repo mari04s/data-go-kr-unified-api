@@ -1,9 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const checkBusiness = require('../adapters/business');
+const withLogging = require('../withLogging');
+
+const loggedCheckBusiness = withLogging('business', checkBusiness);
 
 router.get('/', async (req, res) => {
-  const result = await checkBusiness('0000000000'); // test number for now
+  const result = await loggedCheckBusiness('0000000000');
   res.json(result);
 });
 
