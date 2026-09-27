@@ -1,6 +1,7 @@
 const express = require('express');
 const weatherRoute = require('./routes/weather');
 const airRoute = require('./routes/air');
+const busRoute = require('./routes/bus');
 
 const app = express();
 const PORT = 3000;
@@ -11,6 +12,7 @@ app.get('/', (req, res) => {
 
 app.use('/weather', weatherRoute);
 app.use('/air', airRoute);
+app.use('/bus', busRoute);
 
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
