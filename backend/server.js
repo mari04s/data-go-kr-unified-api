@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const weatherRoute = require('./routes/weather');
 const airRoute = require('./routes/air');
 const busRoute = require('./routes/bus');
@@ -9,6 +10,8 @@ const statsRoute = require('./routes/stats');
 
 const app = express();
 const PORT = 3000;
+
+app.use(cors());
 
 app.get('/', (req, res) => {
   res.send('Server is running!');
